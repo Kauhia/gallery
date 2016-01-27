@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Browse images{% endblock %}
+
+{% block content %}
+
+<div class="images">
+	{% for object in object_list %}
+	    <div class="panel panel-default row">
+			<div class="panel-body">
+				<h1 class="image-text">{{object.text}}</h1>
+				<a href="{% url 'image-comments' object.pk %}">
+					<img src="{{object.image.url}}" alt="Image not avaible" class="img-rounded img-responsive center-block">
+				</a>
+			</div>
+		</div>
+	{% empty %}
+	    <h1> No images yet.</h1>
+	{% endfor %}
+	</div>
+
+	<style type="text/css">
+	.images .image-text {
+		text-align: center;
+		margin-top: 0px;
+		word-break: break-word;
+	}
+	</style>
+
+
+	<script type="text/javascript">
+
+	</script>
+{% endblock %}
+

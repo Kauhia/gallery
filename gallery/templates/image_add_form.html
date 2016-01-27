@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Upload image{% endblock %}
+
+{% block content %}
+	<div class="add-image panel panel-default row">
+		<div class="panel-body">
+
+			<form action="{% url 'image-add'%}" method="post" enctype="multipart/form-data">
+			    {% csrf_token %}
+			    
+				<div class="form-group">
+					{{ form.text|attr:"class:input-lg col-xs-12 bottom-margin text-field"|attr:"placeholder:Include text that will serve as title and description" }}
+				</div>
+
+				<img id="preview_image" src="http://placehold.it/2100x1000" class="img-rounded img-responsive center-block bottom-margin">
+
+				<div class="form-group center-upload bottom-margin">
+					{{ form.image|attr:"accept:image/*" }}
+				</div>
+
+				<div>
+					<input class="btn btn-success btn-lg btn-block" type="submit" value="Submit" />
+				</div>
+				
+			</form>
+
+		</div>
+	</div>
+
+
+	<style type="text/css">
+	.add-image .center-upload {
+		float: none;
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+    	width: 275px;
+	}
+
+	.add-image .bottom-margin {
+		margin-bottom: 20px;
+	}
+
+	.add-image .text-field {
+		border: 0;
+		text-align: center;
+		word-break: break-word;
+	}
+	</style>
+
+	<!-- http://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->
+	<script type="text/javascript">
+	function readURL(input) {
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	            $('#preview_image').attr('src', e.target.result);
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$("#id_image").change(function(){
+	    readURL(this);
+	});
+
+	</script>
+{% endblock %}
+
