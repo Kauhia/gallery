@@ -16,15 +16,17 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from images import urls
+from images.views import ImageListView
 from comments.views import DetailImageAndCreateComment
 from django.conf import settings
 
 urlpatterns = [
+    #url(r'^', ImageListView.as_view()),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^images/(?P<pk>[0-9]+)/$', DetailImageAndCreateComment.as_view(), name='image-comments'),
     url(r'^images/', include('images.urls')),
 ]
 
 # to make django serve the uploaded images, not a solution for production.
-if settings.DEBUG:
+if settings.ENV == 'dev':
     urlpatterns += [url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,})]
