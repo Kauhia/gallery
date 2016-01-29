@@ -4,4 +4,5 @@ django-widget-tweaks==1.4.1
 Markdown==2.6.3
 Pillow==3.1.0
 pyodbc==3.0.10
+wfastcgi==2.2
 wheel==0.24.0
