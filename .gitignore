@@ -2,3 +2,9 @@ ENV/
 
 # Development files
 .DS_Store
+db.sqlite3
+/uploads
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]

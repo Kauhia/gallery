@@ -15,21 +15,28 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def env_var(key, default=None):
+    val = os.environ.get(key, default)
+    if val == 'True':
+        val = True
+    elif val == 'False':
+        val = False
+    return val
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n_et%4&rofx797lq9(6wd4%d3l6yl+xjs89z#1d@2r6@krvd3@'
+SECRET_KEY = env_var('SECRET_KEY', 'n_et%4&rofx797lq9(6wd4%d3l6yl+xjs89z#1d@2r6@krvd3@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_var('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,32 +84,41 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if env_var('ENV', 'dev') == 'dev':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+elif env_var('ENV', 'dev') == 'prod':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'sql_server.pyodbc',
+            'NAME': env_var('DB_NAME'),
+            'USER': env_var('DB_USER'),
+            'PASSWORD': env_var('DB_PASSWORD'),
+            'HOST': env_var('DB_SERVER_NAME'),
+            'PORT': env_var('DB_SERVER_PORT'),
+            'OPTIONS': {
+                'driver': 'SQL Server Native Client 11.0',
+                'MARS_Connection': 'True',
+            }
+        }
+    }
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 TIME_ZONE = 'Europe/Helsinki'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # upload folder for user content

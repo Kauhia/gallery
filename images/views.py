@@ -24,4 +24,4 @@ class ImageDetailView(DetailView):
 
 class ImageListView(ListView):
     model = Image
-    template_name = 'image_list.html'
+    template_name = 'image_thumbnail_list.html'

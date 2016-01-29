@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
                 ('user', models.CharField(max_length=25)),
-                ('text', models.CharField(max_length=200)),
+                ('text', models.TextField()),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
                 ('image', models.ForeignKey(to='images.Image')),
             ],

@@ -14,9 +14,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Image',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
                 ('text', models.CharField(max_length=200)),
                 ('image', models.ImageField(upload_to=images.models.get_image_path)),
+                ('thumbnail', models.ImageField(upload_to=images.models.get_image_path)),
             ],
         ),
     ]
