@@ -1,0 +1,76 @@
+.show-image .image-text {
+	text-align: center;
+	margin-top: 0px;
+	word-break: break-word;
+}
+
+.show-image .no-comments-text {
+	text-align: center;
+}
+
+.show-image .comment-panel {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.show-image .comment-textarea {
+	height: 100px;
+}
+
+.show-image .comment {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-bottom: 10px;
+}
+
+.show-image .nick {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-bottom: 10px;
+}
+
+.show-image .comment-panel .panel-body {
+	padding-bottom: 0px;
+}
+
+.add-image .center-upload {
+	float: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 275px;
+}
+
+.add-image .bottom-margin {
+	margin-bottom: 20px;
+}
+
+.add-image .text-field {
+	border: 0;
+	text-align: center;
+	word-break: break-word;
+}
+
+.images .image-text {
+	text-align: center;
+	margin-top: 0px;
+	word-break: break-word;
+}
+
+.images .image-panel {
+	width: 230px;
+	height: 230px;
+	margin: 5px;
+	padding: 0px;
+}
+
+.images .image-panel .panel-body div {
+	width: 228px;
+	height: 228px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.images .image-panel .panel-body {
+	padding: 0px;
+}

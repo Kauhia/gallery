@@ -7,7 +7,7 @@
 <div class="container-fluid images">
 	{% for object in object_list %}
 	
-	    <div class="panel panel-default image-panel col-sm-3">
+	    <div class="panel panel-default image-panel col-xs-3">
 			<div class="panel-body">
 				<a href="{% url 'image-comments' object.pk %}">
 					<div style="background-image: url({{object.thumbnail.url}})"></div>
@@ -19,30 +19,4 @@
 	    <h1> No images yet.</h1>
 	{% endfor %}
 	</div>
-
-	<style type="text/css">
-	.images .image-panel {
-		width: 230px;
-		height: 230px;
-		margin: 5px;
-		padding: 0px;
-	}
-
-	.images .image-panel .panel-body div {
-		width: 228px;
-		height: 228px;
-	    background-size: cover;
-	    background-repeat: no-repeat;
-	    background-position: 50% 50%;
-	}
-
-	.images .image-panel .panel-body {
-		padding: 0px;
-	}
-	</style>
-
-
-	<script type="text/javascript">
-		//<img src="{{object.thumbnail.url}}" alt="Image not avaible" class="img-rounded img-responsive center-block">
-	</script>
 {% endblock %}

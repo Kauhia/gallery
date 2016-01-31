@@ -11,13 +11,13 @@
 			    {% csrf_token %}
 			    
 				<div class="form-group">
-					{{ form.text|attr:"class:input-lg col-xs-12 bottom-margin text-field"|attr:"placeholder:Include text that will serve as title and description" }}
+					{{ form.text|attr:"class:input-lg col-xs-12 bottom-margin text-field"|attr:"placeholder:Include text that will serve as title and description"|attr:"required" }}
 				</div>
 
 				<img id="preview_image" src="http://placehold.it/2100x1000" class="img-rounded img-responsive center-block bottom-margin">
 
 				<div class="form-group center-upload bottom-margin">
-					{{ form.image|attr:"accept:image/*" }}
+					{{ form.image|attr:"accept:image/*"|attr:"required" }}
 				</div>
 
 				<div>
@@ -28,27 +28,6 @@
 
 		</div>
 	</div>
-
-
-	<style type="text/css">
-	.add-image .center-upload {
-		float: none;
-    	display: block;
-    	margin-left: auto;
-    	margin-right: auto;
-    	width: 275px;
-	}
-
-	.add-image .bottom-margin {
-		margin-bottom: 20px;
-	}
-
-	.add-image .text-field {
-		border: 0;
-		text-align: center;
-		word-break: break-word;
-	}
-	</style>
 
 	<!-- http://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded -->
 	<script type="text/javascript">

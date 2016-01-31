@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +19,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
-	<script type="text/javascript">
-	$(document).ready(function($){
-  	var path = window.location.pathname
-	var target = $('nav a[href="'+path+'"]');
-	target.parent().addClass('active');
-});
-	</script>
+	<link rel="stylesheet" type="text/css" href="{% static "main.css" %}">
+	<script src="{% static "main.js" %}"></script>
 </head>
 
 <body>
@@ -49,10 +45,6 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="{% url 'image-add' %}">Add images</a></li>
 	        <li><a href="{% url 'image-list' %}">Browse images</a></li>
-	      </ul>
-
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Link</a></li>
 	      </ul>
 
 	    </div><!-- /.navbar-collapse -->

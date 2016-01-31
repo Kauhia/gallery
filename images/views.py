@@ -10,14 +10,6 @@ class ImageCreate(CreateView):
     fields = ['text', 'image']
     template_name = 'image_add_form.html'
 
-class ImageUpdate(UpdateView):
-    model = Image
-    fields = ['text']
-
-class ImageDelete(DeleteView):
-    model = Image
-    success_url = reverse_lazy('image-list')
-
 class ImageDetailView(DetailView):
     model = Image
     template_name = 'image.html'

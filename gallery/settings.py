@@ -103,14 +103,18 @@ TIME_ZONE = 'Europe/Helsinki'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = ""
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)
 
 # upload folder for user content
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
 
-
+# logging for azure
 if env_var('ENV', 'dev') == 'prod' and env_var('LOGGING', False):
     LOGGING = {
       'version': 1,
