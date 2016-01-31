@@ -24,9 +24,11 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^images/(?P<pk>[0-9]+)/$', DetailImageAndCreateComment.as_view(), name='image-comments'),
     url(r'^images/', include('images.urls')),
-    url(r'^', ImageListView.as_view()),
 ]
 
 # to make django serve the uploaded images, not a solution for production.
 if settings.ENV == 'dev':
     urlpatterns += [url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,})]
+
+#as last url it will not block others:
+urlpatterns += [url(r'^', ImageListView.as_view()),]
