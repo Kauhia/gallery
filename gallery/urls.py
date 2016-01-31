@@ -21,10 +21,10 @@ from comments.views import DetailImageAndCreateComment
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^', ImageListView.as_view()),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^images/(?P<pk>[0-9]+)/$', DetailImageAndCreateComment.as_view(), name='image-comments'),
     url(r'^images/', include('images.urls')),
+    url(r'^', ImageListView.as_view()),
 ]
 
 # to make django serve the uploaded images, not a solution for production.

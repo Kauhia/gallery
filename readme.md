@@ -26,8 +26,8 @@ Current list of features
 
 - Upload image, a thumbnail will be generated and both will be saved with unique name on /uploads folder
 - List all images useing thumbnails
-- Open a selected image
-- Comments on images with nickname and comment text. 
+- Open a selected image with image specific url
+- Comment on images with nickname and comment text.
 ```
 
-[Eemeli Kouhia](https://github.com/Kauhia/)
+by [Eemeli Kouhia](https://github.com/Kauhia/)
